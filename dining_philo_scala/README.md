@@ -1,7 +1,7 @@
 # Dining philosopher project in Akka
 
 This project implements the parametric version of the dining philosopher problem in Akka. This project includes concurrent programming,
-deadlock provention, remote communication between virtual machines and actor-based communication
+deadlock provention, remote communication between virtual machines and actor-based communication.
 
 ## Assignment requirements
 
@@ -80,10 +80,10 @@ val philosophers = (1 to n).map { i =>
 
 ### Parameters tuning
 
-It is possible to change some parameters to get different behaviors of the program. These parameters are in `src\main\resources\application.conf`
+It is possible to change some parameters to get different behaviors of the program. These parameters are in `src\main\resources\application.conf`.
 
-- To change the number of philosophers, change the parameter dining-philosophers.philosopher-count in `application.conf` (the default value is 10)
-- To decide to get deadlock or not, change the parameter dining-philosophers.deadlock in `application.conf` (true if you want deadlock, false if you don't want deadlock)
+- To change the number of philosophers, change the parameter dining-philosophers.philosopher-count in `application.conf` (the default value is 10).
+- To decide to get deadlock or not, change the parameter dining-philosophers.deadlock in `application.conf` (true if you want deadlock, false if you don't want deadlock). The default value is false.
 
 For example, in `application.conf`, you will find:
 
@@ -97,6 +97,8 @@ dining-philosophers {
 ```
 
 ### Execution of the program
+
+⚠️ If you want to stop and relaunch a virtual machine (fork machine or philosopher machine), you have to stop both before relaunching both. If you changed a parameter, you should also stop and relaunch the two machines. To execute the program:
 
 1. Navigate to project directory
 
