@@ -12,44 +12,65 @@ import scala.concurrent.{Await, ExecutionContext}
 
 object PhilosopherVMachine extends App {
 
-  val forkVMachineAddress = "akka://ForkVMachine@127.0.0.1:2551"
-  val config = ConfigFactory.load("philosopher")
+  val forkVMachineAddress =
+    "akka://ForkVMachine@127.0.0.1:2551" // Address of the ForkVMachine
+  System.setProperty(
+    "AKKA_PORT",
+    "2552"
+  ) // Set the port for PhilosopherVMachine
+
+  val config = ConfigFactory.load("application") // Load the configuration file
   val system = ActorSystem("PhilosopherVMachine", config)
 
   implicit val ec: ExecutionContext = system.dispatcher
 
-  // 2) read n & forkAddress from config
+  // get the number of philosophers and deadlock setting from the config
   val n = config.getInt("dining-philosophers.philosopher-count")
+  val deadlock = config.getBoolean(
+    "dining-philosophers.deadlock"
+  ) // whether to enable deadlock or not, modiffy it in application.conf
 
-  // 3) build the selections
+  println(
+    s"PhilosopherVMachine started with $n philosophers and deadlock=$deadlock"
+  )
+
+  // get the fork actor references from the ForkVMachine
   val forkSels =
     (1 to n).map(i =>
       system.actorSelection(s"$forkVMachineAddress/user/fork$i")
     )
 
-  // 4) resolve them all in parallel, with a 5s timeout each
   implicit val to: Timeout = Timeout(5.seconds)
   val forkRefsF: Future[Seq[ActorRef]] =
     Future.sequence(forkSels.map(_.resolveOne(5.seconds)))
 
-  // 5) wait here until they’re all resolved (or a timeout/error)
+  // wait here until the forks are resolved (or a timeout/error)
   val forkRefs: Seq[ActorRef] =
     Await.result(forkRefsF, 6.seconds)
 
-  println(s"Resolved ${forkRefs.size} forks")
-
-  println(s"Successfully resolved all forks: $forkRefs")
-
   val philosophers = (1 to n).map { i =>
     if (i == 1) {
-      val rightFork = forkRefs(i - 1)
-      val leftFork = forkRefs(i % n)
+      // Special case for the first philosopher to avoid or not deadlock
+      if (deadlock) {
+        // If deadlock is enabled, don't reverse the order of forks for the first philosopher
+        val rightFork = forkRefs(i % n)
+        val leftFork = forkRefs(i - 1)
+        system.actorOf(
+          Props(new Philosopher(s"Philosopher$i", rightFork, leftFork)),
+          s"philosopher$i"
+        )
+      } else {
+        // If deadlock is not enabled, reverse the order of forks for the first philosopher
+        val rightFork = forkRefs(i - 1)
+        val leftFork = forkRefs(i % n)
 
-      system.actorOf(
-        Props(new Philosopher(s"Philosopher$i", rightFork, leftFork)),
-        s"philosopher$i"
-      )
+        system.actorOf(
+          Props(new Philosopher(s"Philosopher$i", rightFork, leftFork)),
+          s"philosopher$i"
+        )
+      }
     } else {
+      // For all other philosophers, use the normal order of forks
       val rightFork = forkRefs(i % n)
       val leftFork = forkRefs(i - 1)
 
@@ -61,8 +82,7 @@ object PhilosopherVMachine extends App {
 
   }
 
+  // Start all philosophers
   philosophers.foreach(_ ! Philosopher.Start)
-//   StdIn.readLine() // Keep the application running until user input
-//   Await.result(system.whenTerminated, Duration.Inf)
 
 }
