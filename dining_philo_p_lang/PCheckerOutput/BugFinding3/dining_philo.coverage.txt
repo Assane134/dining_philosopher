@@ -1,7 +1,7 @@
-Total event coverage: 87.5%
-===========================
-StateMachine: DiningDriver
-==========================
+Total event coverage: 100.0%
+============================
+StateMachine: DiningDriverDeadlock
+==================================
 Event coverage: 100.0%
 
 	State: Init
@@ -28,7 +28,7 @@ Event coverage: 100.0%
 
 StateMachine: Philosopher
 =========================
-Event coverage: 75.0%
+Event coverage: 100.0%
 
 	State: Init
 		State has no expected events, so coverage is 100%
@@ -38,20 +38,27 @@ Event coverage: 75.0%
 		State event coverage: 100.0%
 		Events received: Acquired, Busy
 		Events sent: Acquire
-		Previous states: Eating, Init
+		Previous states: Init, ReleaseRightFork
 		Next states: AcquireRightFork
 
 	State: AcquireRightFork
-		State event coverage: 50.0%
-		Events received: Acquired
+		State event coverage: 100.0%
+		Events received: Acquired, Busy
 		Events sent: Acquire
-		Events not covered: Busy
 		Previous states: AcquireLeftFork
-		Next states: Eating
+		Next states: ReleaseLeftFork
 
-	State: Eating
-		State has no expected events, so coverage is 100%
+	State: ReleaseLeftFork
+		State event coverage: 100.0%
+		Events received: Released
 		Events sent: Release
 		Previous states: AcquireRightFork
+		Next states: ReleaseRightFork
+
+	State: ReleaseRightFork
+		State event coverage: 100.0%
+		Events received: Released
+		Events sent: Release
+		Previous states: ReleaseLeftFork
 		Next states: AcquireLeftFork
 

@@ -6,6 +6,7 @@
 <CreateLog> Fork(2) was created by DiningDriver(1).
 <StateLog> Fork(2) enters state 'Idle'.
 <CreateLog> Fork(3) was created by DiningDriver(1).
+<StateLog> Fork(3) enters state 'Idle'.
 <CreateLog> Fork(4) was created by DiningDriver(1).
 <CreateLog> Fork(5) was created by DiningDriver(1).
 <StateLog> Fork(4) enters state 'Idle'.
@@ -13,66 +14,65 @@
 <CreateLog> Fork(6) was created by DiningDriver(1).
 <StateLog> Fork(6) enters state 'Idle'.
 <CreateLog> Philosopher(7) was created by DiningDriver(1).
-<CreateLog> Philosopher(8) was created by DiningDriver(1).
-<CreateLog> Philosopher(9) was created by DiningDriver(1).
 <StateLog> Philosopher(7) enters state 'Init'.
 <GotoLog> Philosopher(7) is transitioning from state 'Init' to state 'PImplementation.Philosopher.AcquireLeftFork'.
 <StateLog> Philosopher(7) exits state 'Init'.
 <StateLog> Philosopher(7) enters state 'AcquireLeftFork'.
 <PrintLog> Philosopher1 trying to acquire left fork
-<StateLog> Fork(3) enters state 'Idle'.
-<CreateLog> Philosopher(10) was created by DiningDriver(1).
-<StateLog> Philosopher(9) enters state 'Init'.
-<GotoLog> Philosopher(9) is transitioning from state 'Init' to state 'PImplementation.Philosopher.AcquireLeftFork'.
-<StateLog> Philosopher(9) exits state 'Init'.
-<StateLog> Philosopher(9) enters state 'AcquireLeftFork'.
-<PrintLog> Philosopher3 trying to acquire left fork
-<CreateLog> Philosopher(11) was created by DiningDriver(1).
+<CreateLog> Philosopher(8) was created by DiningDriver(1).
 <SendLog> 'Philosopher(7)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(7))' to 'Fork(3)'.
-<SendLog> 'Philosopher(9)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(9))' to 'Fork(4)'.
-<StateLog> Philosopher(11) enters state 'Init'.
-<GotoLog> Philosopher(11) is transitioning from state 'Init' to state 'PImplementation.Philosopher.AcquireLeftFork'.
-<StateLog> Philosopher(11) exits state 'Init'.
-<StateLog> Philosopher(11) enters state 'AcquireLeftFork'.
-<PrintLog> Philosopher5 trying to acquire left fork
-<StateLog> Philosopher(10) enters state 'Init'.
-<GotoLog> Philosopher(10) is transitioning from state 'Init' to state 'PImplementation.Philosopher.AcquireLeftFork'.
-<StateLog> Philosopher(10) exits state 'Init'.
-<StateLog> Philosopher(10) enters state 'AcquireLeftFork'.
-<PrintLog> Philosopher4 trying to acquire left fork
 <DequeueLog> 'Fork(3)' dequeued event 'Acquire with payload (Philosopher(7))' in state 'Idle'.
 <MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(7))' in state 'Idle'.
-<DequeueLog> 'Fork(4)' dequeued event 'Acquire with payload (Philosopher(9))' in state 'Idle'.
-<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(9))' in state 'Idle'.
 <StateLog> Philosopher(8) enters state 'Init'.
 <GotoLog> Philosopher(8) is transitioning from state 'Init' to state 'PImplementation.Philosopher.AcquireLeftFork'.
 <StateLog> Philosopher(8) exits state 'Init'.
 <StateLog> Philosopher(8) enters state 'AcquireLeftFork'.
 <PrintLog> Philosopher2 trying to acquire left fork
-<SendLog> 'Philosopher(11)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(11))' to 'Fork(6)'.
-<SendLog> 'Philosopher(10)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(10))' to 'Fork(5)'.
-<SendLog> 'Philosopher(8)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(8))' to 'Fork(3)'.
-<DequeueLog> 'Fork(5)' dequeued event 'Acquire with payload (Philosopher(10))' in state 'Idle'.
-<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(10))' in state 'Idle'.
-<SendLog> 'Fork(5)' in state 'Idle' sent event 'Acquired with payload (Philosopher(10))' to 'Philosopher(10)'.
-<SendLog> 'Fork(4)' in state 'Idle' sent event 'Acquired with payload (Philosopher(9))' to 'Philosopher(9)'.
-<DequeueLog> 'Fork(6)' dequeued event 'Acquire with payload (Philosopher(11))' in state 'Idle'.
-<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(11))' in state 'Idle'.
+<CreateLog> Philosopher(9) was created by DiningDriver(1).
 <SendLog> 'Fork(3)' in state 'Idle' sent event 'Acquired with payload (Philosopher(7))' to 'Philosopher(7)'.
+<CreateLog> Philosopher(10) was created by DiningDriver(1).
 <DequeueLog> 'Philosopher(7)' dequeued event 'Acquired with payload (Philosopher(7))' in state 'AcquireLeftFork'.
 <PrintLog> Philosopher1 acquired left fork
 <GotoLog> Philosopher(7) is transitioning from state 'AcquireLeftFork' to state 'PImplementation.Philosopher.AcquireRightFork'.
 <StateLog> Philosopher(7) exits state 'AcquireLeftFork'.
 <StateLog> Philosopher(7) enters state 'AcquireRightFork'.
 <PrintLog> Philosopher1 trying to acquire right fork
-<SendLog> 'Fork(6)' in state 'Idle' sent event 'Acquired with payload (Philosopher(11))' to 'Philosopher(11)'.
-<DequeueLog> 'Fork(3)' dequeued event 'Acquire with payload (Philosopher(8))' in state 'Idle'.
+<StateLog> Philosopher(9) enters state 'Init'.
+<GotoLog> Philosopher(9) is transitioning from state 'Init' to state 'PImplementation.Philosopher.AcquireLeftFork'.
+<StateLog> Philosopher(9) exits state 'Init'.
+<StateLog> Philosopher(9) enters state 'AcquireLeftFork'.
+<PrintLog> Philosopher3 trying to acquire left fork
+<StateLog> Philosopher(10) enters state 'Init'.
+<GotoLog> Philosopher(10) is transitioning from state 'Init' to state 'PImplementation.Philosopher.AcquireLeftFork'.
+<StateLog> Philosopher(10) exits state 'Init'.
+<StateLog> Philosopher(10) enters state 'AcquireLeftFork'.
+<PrintLog> Philosopher4 trying to acquire left fork
+<SendLog> 'Philosopher(9)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(9))' to 'Fork(4)'.
+<CreateLog> Philosopher(11) was created by DiningDriver(1).
+<SendLog> 'Philosopher(10)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(10))' to 'Fork(5)'.
+<DequeueLog> 'Fork(4)' dequeued event 'Acquire with payload (Philosopher(9))' in state 'Idle'.
+<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(9))' in state 'Idle'.
+<SendLog> 'Fork(4)' in state 'Idle' sent event 'Acquired with payload (Philosopher(9))' to 'Philosopher(9)'.
+<StateLog> Philosopher(11) enters state 'Init'.
+<GotoLog> Philosopher(11) is transitioning from state 'Init' to state 'PImplementation.Philosopher.AcquireLeftFork'.
+<StateLog> Philosopher(11) exits state 'Init'.
+<StateLog> Philosopher(11) enters state 'AcquireLeftFork'.
+<PrintLog> Philosopher5 trying to acquire left fork
+<SendLog> 'Philosopher(8)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(8))' to 'Fork(3)'.
 <DequeueLog> 'Philosopher(9)' dequeued event 'Acquired with payload (Philosopher(9))' in state 'AcquireLeftFork'.
 <PrintLog> Philosopher3 acquired left fork
 <GotoLog> Philosopher(9) is transitioning from state 'AcquireLeftFork' to state 'PImplementation.Philosopher.AcquireRightFork'.
 <StateLog> Philosopher(9) exits state 'AcquireLeftFork'.
 <StateLog> Philosopher(9) enters state 'AcquireRightFork'.
 <PrintLog> Philosopher3 trying to acquire right fork
+<SendLog> 'Philosopher(11)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(11))' to 'Fork(6)'.
+<DequeueLog> 'Fork(6)' dequeued event 'Acquire with payload (Philosopher(11))' in state 'Idle'.
+<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(11))' in state 'Idle'.
+<SendLog> 'Philosopher(7)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(7))' to 'Fork(2)'.
+<SendLog> 'Fork(6)' in state 'Idle' sent event 'Acquired with payload (Philosopher(11))' to 'Philosopher(11)'.
+<DequeueLog> 'Fork(5)' dequeued event 'Acquire with payload (Philosopher(10))' in state 'Idle'.
+<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(10))' in state 'Idle'.
+<SendLog> 'Fork(5)' in state 'Idle' sent event 'Acquired with payload (Philosopher(10))' to 'Philosopher(10)'.
 <DequeueLog> 'Philosopher(10)' dequeued event 'Acquired with payload (Philosopher(10))' in state 'AcquireLeftFork'.
 <PrintLog> Philosopher4 acquired left fork
 <GotoLog> Philosopher(10) is transitioning from state 'AcquireLeftFork' to state 'PImplementation.Philosopher.AcquireRightFork'.
@@ -80,35 +80,44 @@
 <StateLog> Philosopher(10) enters state 'AcquireRightFork'.
 <PrintLog> Philosopher4 trying to acquire right fork
 <SendLog> 'Philosopher(10)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(10))' to 'Fork(6)'.
+<DequeueLog> 'Fork(6)' dequeued event 'Acquire with payload (Philosopher(10))' in state 'Idle'.
+<DequeueLog> 'Fork(2)' dequeued event 'Acquire with payload (Philosopher(7))' in state 'Idle'.
+<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(7))' in state 'Idle'.
+<DequeueLog> 'Fork(3)' dequeued event 'Acquire with payload (Philosopher(8))' in state 'Idle'.
+<SendLog> 'Fork(6)' in state 'Idle' sent event 'Busy' to 'Philosopher(10)'.
 <SendLog> 'Philosopher(9)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(9))' to 'Fork(5)'.
-<SendLog> 'Fork(3)' in state 'Idle' sent event 'Busy' to 'Philosopher(8)'.
-<DequeueLog> 'Philosopher(8)' dequeued event 'Busy' in state 'AcquireLeftFork'.
-<PrintLog> Philosopher2 left fork busy, retrying...
-<SendLog> 'Philosopher(7)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(7))' to 'Fork(2)'.
+<DequeueLog> 'Fork(5)' dequeued event 'Acquire with payload (Philosopher(9))' in state 'Idle'.
 <DequeueLog> 'Philosopher(11)' dequeued event 'Acquired with payload (Philosopher(11))' in state 'AcquireLeftFork'.
 <PrintLog> Philosopher5 acquired left fork
 <GotoLog> Philosopher(11) is transitioning from state 'AcquireLeftFork' to state 'PImplementation.Philosopher.AcquireRightFork'.
 <StateLog> Philosopher(11) exits state 'AcquireLeftFork'.
 <StateLog> Philosopher(11) enters state 'AcquireRightFork'.
 <PrintLog> Philosopher5 trying to acquire right fork
-<DequeueLog> 'Fork(5)' dequeued event 'Acquire with payload (Philosopher(9))' in state 'Idle'.
-<SendLog> 'Philosopher(11)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(11))' to 'Fork(2)'.
-<SendLog> 'Philosopher(8)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(8))' to 'Fork(3)'.
-<DequeueLog> 'Fork(6)' dequeued event 'Acquire with payload (Philosopher(10))' in state 'Idle'.
-<DequeueLog> 'Fork(2)' dequeued event 'Acquire with payload (Philosopher(7))' in state 'Idle'.
-<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(7))' in state 'Idle'.
+<SendLog> 'Fork(5)' in state 'Idle' sent event 'Busy' to 'Philosopher(9)'.
 <SendLog> 'Fork(2)' in state 'Idle' sent event 'Acquired with payload (Philosopher(7))' to 'Philosopher(7)'.
-<DequeueLog> 'Fork(2)' dequeued event 'Acquire with payload (Philosopher(11))' in state 'Idle'.
+<SendLog> 'Philosopher(11)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(11))' to 'Fork(2)'.
+<DequeueLog> 'Philosopher(9)' dequeued event 'Busy' in state 'AcquireRightFork'.
+<PrintLog> Philosopher3 right fork busy, retrying...
+<SendLog> 'Fork(3)' in state 'Idle' sent event 'Busy' to 'Philosopher(8)'.
+<SendLog> 'Philosopher(9)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(9))' to 'Fork(5)'.
+<DequeueLog> 'Fork(5)' dequeued event 'Acquire with payload (Philosopher(9))' in state 'Idle'.
 <DequeueLog> 'Philosopher(7)' dequeued event 'Acquired with payload (Philosopher(7))' in state 'AcquireRightFork'.
 <PrintLog> Philosopher1 acquired right fork
 <PrintLog> Philosopher1 is eating
 <GotoLog> Philosopher(7) is transitioning from state 'AcquireRightFork' to state 'PImplementation.Philosopher.Eating'.
 <StateLog> Philosopher(7) exits state 'AcquireRightFork'.
 <StateLog> Philosopher(7) enters state 'Eating'.
-<SendLog> 'Fork(6)' in state 'Idle' sent event 'Busy' to 'Philosopher(10)'.
 <SendLog> 'Philosopher(7)' in state 'Eating' sent event 'Release with payload (Philosopher(7))' to 'Fork(2)'.
+<DequeueLog> 'Philosopher(8)' dequeued event 'Busy' in state 'AcquireLeftFork'.
+<PrintLog> Philosopher2 left fork busy, retrying...
+<SendLog> 'Philosopher(8)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(8))' to 'Fork(3)'.
+<DequeueLog> 'Fork(2)' dequeued event 'Acquire with payload (Philosopher(11))' in state 'Idle'.
 <DequeueLog> 'Fork(3)' dequeued event 'Acquire with payload (Philosopher(8))' in state 'Idle'.
-<SendLog> 'Fork(3)' in state 'Idle' sent event 'Busy' to 'Philosopher(8)'.
+<SendLog> 'Fork(2)' in state 'Idle' sent event 'Busy' to 'Philosopher(11)'.
+<DequeueLog> 'Fork(2)' dequeued event 'Release with payload (Philosopher(7))' in state 'Idle'.
+<MonitorLog> NoDeadLock is processing event 'Released with payload (Philosopher(7))' in state 'Idle'.
+<DequeueLog> 'Philosopher(11)' dequeued event 'Busy' in state 'AcquireRightFork'.
+<PrintLog> Philosopher5 right fork busy, retrying...
 <SendLog> 'Philosopher(7)' in state 'Eating' sent event 'Release with payload (Philosopher(7))' to 'Fork(3)'.
 <PrintLog> Philosopher1 finished eating and released forks
 <PrintLog> Philosopher1 is thinking
@@ -116,46 +125,12 @@
 <StateLog> Philosopher(7) exits state 'Eating'.
 <StateLog> Philosopher(7) enters state 'AcquireLeftFork'.
 <PrintLog> Philosopher1 trying to acquire left fork
-<SendLog> 'Fork(5)' in state 'Idle' sent event 'Busy' to 'Philosopher(9)'.
-<DequeueLog> 'Philosopher(8)' dequeued event 'Busy' in state 'AcquireLeftFork'.
-<PrintLog> Philosopher2 left fork busy, retrying...
-<SendLog> 'Fork(2)' in state 'Idle' sent event 'Busy' to 'Philosopher(11)'.
-<SendLog> 'Philosopher(8)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(8))' to 'Fork(3)'.
-<DequeueLog> 'Philosopher(9)' dequeued event 'Busy' in state 'AcquireRightFork'.
-<PrintLog> Philosopher3 right fork busy, retrying...
-<DequeueLog> 'Fork(2)' dequeued event 'Release with payload (Philosopher(7))' in state 'Idle'.
-<MonitorLog> NoDeadLock is processing event 'Released with payload (Philosopher(7))' in state 'Idle'.
+<SendLog> 'Fork(2)' in state 'Idle' sent event 'Released with payload (Philosopher(7))' to 'Philosopher(7)'.
+<SendLog> 'Philosopher(7)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(7))' to 'Fork(3)'.
+<SendLog> 'Fork(3)' in state 'Idle' sent event 'Busy' to 'Philosopher(8)'.
+<SendLog> 'Philosopher(11)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(11))' to 'Fork(2)'.
 <DequeueLog> 'Philosopher(10)' dequeued event 'Busy' in state 'AcquireRightFork'.
 <PrintLog> Philosopher4 right fork busy, retrying...
-<SendLog> 'Philosopher(7)' in state 'AcquireLeftFork' sent event 'Acquire with payload (Philosopher(7))' to 'Fork(3)'.
-<DequeueLog> 'Philosopher(11)' dequeued event 'Busy' in state 'AcquireRightFork'.
-<PrintLog> Philosopher5 right fork busy, retrying...
-<SendLog> 'Fork(2)' in state 'Idle' sent event 'Released with payload (Philosopher(7))' to 'Philosopher(7)'.
-<SendLog> 'Philosopher(9)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(9))' to 'Fork(5)'.
-<DequeueLog> 'Fork(3)' dequeued event 'Release with payload (Philosopher(7))' in state 'Idle'.
-<MonitorLog> NoDeadLock is processing event 'Released with payload (Philosopher(7))' in state 'Idle'.
-<SendLog> 'Fork(3)' in state 'Idle' sent event 'Released with payload (Philosopher(7))' to 'Philosopher(7)'.
-<SendLog> 'Philosopher(10)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(10))' to 'Fork(6)'.
-<SendLog> 'Philosopher(11)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(11))' to 'Fork(2)'.
-<DequeueLog> 'Fork(3)' dequeued event 'Acquire with payload (Philosopher(8))' in state 'Idle'.
-<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(8))' in state 'Idle'.
-<DequeueLog> 'Fork(5)' dequeued event 'Acquire with payload (Philosopher(9))' in state 'Idle'.
-<SendLog> 'Fork(5)' in state 'Idle' sent event 'Busy' to 'Philosopher(9)'.
-<DequeueLog> 'Fork(2)' dequeued event 'Acquire with payload (Philosopher(11))' in state 'Idle'.
-<MonitorLog> NoDeadLock is processing event 'Acquired with payload (Philosopher(11))' in state 'Idle'.
-<SendLog> 'Fork(3)' in state 'Idle' sent event 'Acquired with payload (Philosopher(8))' to 'Philosopher(8)'.
-<DequeueLog> 'Fork(3)' dequeued event 'Acquire with payload (Philosopher(7))' in state 'Idle'.
-<DequeueLog> 'Philosopher(9)' dequeued event 'Busy' in state 'AcquireRightFork'.
-<PrintLog> Philosopher3 right fork busy, retrying...
-<DequeueLog> 'Fork(6)' dequeued event 'Acquire with payload (Philosopher(10))' in state 'Idle'.
-<SendLog> 'Fork(2)' in state 'Idle' sent event 'Acquired with payload (Philosopher(11))' to 'Philosopher(11)'.
-<DequeueLog> 'Philosopher(11)' dequeued event 'Acquired with payload (Philosopher(11))' in state 'AcquireRightFork'.
-<PrintLog> Philosopher5 acquired right fork
-<PrintLog> Philosopher5 is eating
-<GotoLog> Philosopher(11) is transitioning from state 'AcquireRightFork' to state 'PImplementation.Philosopher.Eating'.
-<StateLog> Philosopher(11) exits state 'AcquireRightFork'.
-<StateLog> Philosopher(11) enters state 'Eating'.
-<SendLog> 'Philosopher(9)' in state 'AcquireRightFork' sent event 'Acquire with payload (Philosopher(9))' to 'Fork(5)'.
 <DequeueLog> 'Philosopher(7)' dequeued event 'Released with payload (Philosopher(7))' in state 'AcquireLeftFork'.
 <StateLog> Philosopher(7) exits state 'AcquireLeftFork'.
 <PopLog> Philosopher(7) popped state AcquireLeftFork due to unhandled event 'Released'.
@@ -168,4 +143,4 @@
 <StrategyLog> Explored 1 schedule
 <StrategyLog> Explored 1 timeline
 <StrategyLog> Found 100.00% buggy schedules.
-<StrategyLog> Number of scheduling points in terminating schedules: 85 (min), 85 (avg), 85 (max).
+<StrategyLog> Number of scheduling points in terminating schedules: 70 (min), 70 (avg), 70 (max).

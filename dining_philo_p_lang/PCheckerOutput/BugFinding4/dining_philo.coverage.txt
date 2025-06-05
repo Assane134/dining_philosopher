@@ -38,7 +38,7 @@ Event coverage: 100.0%
 		State event coverage: 100.0%
 		Events received: Acquired, Busy
 		Events sent: Acquire
-		Previous states: Eating, Init
+		Previous states: Init, ReleaseRightFork
 		Next states: AcquireRightFork
 
 	State: AcquireRightFork
@@ -46,11 +46,19 @@ Event coverage: 100.0%
 		Events received: Acquired, Busy
 		Events sent: Acquire
 		Previous states: AcquireLeftFork
-		Next states: Eating
+		Next states: ReleaseLeftFork
 
-	State: Eating
-		State has no expected events, so coverage is 100%
+	State: ReleaseLeftFork
+		State event coverage: 100.0%
+		Events received: Released
 		Events sent: Release
 		Previous states: AcquireRightFork
+		Next states: ReleaseRightFork
+
+	State: ReleaseRightFork
+		State event coverage: 100.0%
+		Events received: Released
+		Events sent: Release
+		Previous states: ReleaseLeftFork
 		Next states: AcquireLeftFork
 

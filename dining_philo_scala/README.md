@@ -1,7 +1,7 @@
 # Dining philosopher project in Akka
 
 This project implements the parametric version of the dining philosopher problem in Akka. This project includes concurrent programming,
-deadlock provention, remote communication between virtual machines and actor-based communication.
+deadlock prevention, remote communication between virtual machines and actor-based communication.
 
 ## Assignment requirements
 

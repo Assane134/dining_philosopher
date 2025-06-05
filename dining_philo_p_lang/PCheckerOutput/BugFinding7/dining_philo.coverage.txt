@@ -1,7 +1,7 @@
 Total event coverage: 100.0%
 ============================
-StateMachine: DiningDriverDeadlock
-==================================
+StateMachine: DiningDriver
+==========================
 Event coverage: 100.0%
 
 	State: Init

@@ -10,7 +10,7 @@
 
 ### P Language implementation
 
-- uses the P Langugae for verification
+- uses the P Language for verification
 - demonstrates two scenario: a case with deadlock and a scenario without deadlock (asymmetric solution scenario)
 
 This repository contains:

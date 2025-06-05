@@ -1,6 +1,6 @@
 # Dining philosopher project in P Language
 
-This project implements dining philosopher problem in P language to verify the solution implemented in Akka prevent deadlocks.
+This project implements dining philosopher problem in P language to check if the solution implemented in Akka prevent deadlocks.
 The project includes two scenarios: a scenario leading to deadlock (solution is not implemented) and a scenario where the asymmetric strategy is implemented.
 
 ## Assignment requirements
@@ -25,8 +25,8 @@ In this work, all the requirements have been fulfilled:
 
 ### Parameters tuning
 
-In this work it is possible to tune the number of philosophers and forks. For the variable `N` in the files
-`PTst\Driver.p` (in the machines `DiningDriver` and `DiningDriverDeadlock`) and in the file `PSpec\NoDeadlockSpec.p` (in the spec `NoDeadLock`). The default number of philosopher is 10.
+In this work it is possible to tune the number of philosophers and forks. For that, modify the variable `N` in the files
+`PTst\Driver.p` (in the machines `DiningDriver` and `DiningDriverDeadlock`) and in the file `PSpec\NoDeadlockSpec.p` (in the spec `NoDeadLock`). The default number of philosophers is 10.
 
 ### Drivers
 

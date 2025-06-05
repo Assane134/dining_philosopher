@@ -1,7 +1,7 @@
-Total event coverage: 40.0%
-===========================
-StateMachine: DiningDriverDeadlock
-==================================
+Total event coverage: 100.0%
+============================
+StateMachine: DiningDriver
+==========================
 Event coverage: 100.0%
 
 	State: Init
@@ -9,50 +9,48 @@ Event coverage: 100.0%
 
 StateMachine: Fork
 ==================
-Event coverage: 50.0%
+Event coverage: 100.0%
 
 	State: Idle
-		State event coverage: 50.0%
-		Events received: Acquire
-		Events sent: Acquired
-		Events not covered: Release
+		State event coverage: 100.0%
+		Events received: Acquire, Release
+		Events sent: Acquired, Busy, Released
 
 Monitor: NoDeadLock
 ===================
-Event coverage: 50.0%
+Event coverage: 100.0%
 
 	State: Idle
-		State event coverage: 50.0%
-		Events received: Acquired
-		Events not covered: Released
+		State event coverage: 100.0%
+		Events received: Acquired, Released
 		Previous states: Idle
 		Next states: Idle
 
 StateMachine: Philosopher
 =========================
-Event coverage: 33.3%
+Event coverage: 100.0%
 
 	State: Init
 		State has no expected events, so coverage is 100%
 		Next states: AcquireLeftFork
 
 	State: AcquireLeftFork
-		State has no expected events, so coverage is 100%
+		State event coverage: 100.0%
+		Events received: Acquired, Busy
 		Events sent: Acquire
-		Previous states: Init
-		Next states: WaitForLeftFork
+		Previous states: Eating, Init
+		Next states: AcquireRightFork
 
-	State: WaitForLeftFork
-		State event coverage: 66.7%
-		Events received: AcquireRightFork, Acquired
-		Events sent: AcquireRightFork
-		Events not covered: Busy
-		Previous states: AcquireLeftFork, WaitForLeftFork
-		Next states: WaitForLeftFork
+	State: AcquireRightFork
+		State event coverage: 100.0%
+		Events received: Acquired, Busy
+		Events sent: Acquire
+		Previous states: AcquireLeftFork
+		Next states: Eating
 
-	State: WaitForRightFork is uncovered
-		Events not covered: Acquired, Busy
-
-	State: Eating is uncovered
-		Events not covered: EatDone
+	State: Eating
+		State has no expected events, so coverage is 100%
+		Events sent: Release
+		Previous states: AcquireRightFork
+		Next states: AcquireLeftFork
 
