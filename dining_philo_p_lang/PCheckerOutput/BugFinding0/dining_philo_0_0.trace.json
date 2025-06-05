@@ -1,0 +1,185 @@
+[
+  {
+    "type": "CreateMonitor",
+    "details": {
+      "log": "NoDeadLock was created.",
+      "payload": "null",
+      "monitor": "NoDeadLock",
+      "clock": {
+        "NoDeadLock": 1
+      }
+    }
+  },
+  {
+    "type": "MonitorStateTransition",
+    "details": {
+      "log": "NoDeadLock enters state \u0027Idle\u0027.",
+      "state": "Idle",
+      "payload": "null",
+      "isEntry": true,
+      "monitor": "NoDeadLock",
+      "clock": {
+        "NoDeadLock": 2
+      }
+    }
+  },
+  {
+    "type": "CreateStateMachine",
+    "details": {
+      "log": "DiningDriverDeadlock(1) was created by task \u00272\u0027.",
+      "id": "DiningDriverDeadlock(1)",
+      "payload": "null",
+      "clock": {
+        "DiningDriverDeadlock(1)": 1
+      }
+    }
+  },
+  {
+    "type": "StateTransition",
+    "details": {
+      "log": "DiningDriverDeadlock(1) enters state \u0027Init\u0027.",
+      "id": "DiningDriverDeadlock(1)",
+      "state": "Init",
+      "payload": "null",
+      "isEntry": true,
+      "clock": {
+        "DiningDriverDeadlock(1)": 2
+      }
+    }
+  },
+  {
+    "type": "CreateStateMachine",
+    "details": {
+      "log": "Fork(2) was created by DiningDriverDeadlock(1).",
+      "id": "Fork(2)",
+      "creatorName": "DiningDriverDeadlock(1)",
+      "creatorType": "DiningDriverDeadlock",
+      "payload": "null",
+      "clock": {
+        "Fork(2)": 1
+      }
+    }
+  },
+  {
+    "type": "CreateStateMachine",
+    "details": {
+      "log": "Fork(3) was created by DiningDriverDeadlock(1).",
+      "id": "Fork(3)",
+      "creatorName": "DiningDriverDeadlock(1)",
+      "creatorType": "DiningDriverDeadlock",
+      "payload": "null",
+      "clock": {
+        "Fork(3)": 1
+      }
+    }
+  },
+  {
+    "type": "StateTransition",
+    "details": {
+      "log": "Fork(3) enters state \u0027Idle\u0027.",
+      "id": "Fork(3)",
+      "state": "Idle",
+      "payload": "null",
+      "isEntry": true,
+      "clock": {
+        "Fork(3)": 2
+      }
+    }
+  },
+  {
+    "type": "CreateStateMachine",
+    "details": {
+      "log": "Fork(4) was created by DiningDriverDeadlock(1).",
+      "id": "Fork(4)",
+      "creatorName": "DiningDriverDeadlock(1)",
+      "creatorType": "DiningDriverDeadlock",
+      "payload": "null",
+      "clock": {
+        "Fork(4)": 1
+      }
+    }
+  },
+  {
+    "type": "StateTransition",
+    "details": {
+      "log": "Fork(2) enters state \u0027Idle\u0027.",
+      "id": "Fork(2)",
+      "state": "Idle",
+      "payload": "null",
+      "isEntry": true,
+      "clock": {
+        "Fork(2)": 2
+      }
+    }
+  },
+  {
+    "type": "StateTransition",
+    "details": {
+      "log": "Fork(4) enters state \u0027Idle\u0027.",
+      "id": "Fork(4)",
+      "state": "Idle",
+      "payload": "null",
+      "isEntry": true,
+      "clock": {
+        "Fork(4)": 2
+      }
+    }
+  },
+  {
+    "type": "CreateStateMachine",
+    "details": {
+      "log": "Fork(5) was created by DiningDriverDeadlock(1).",
+      "id": "Fork(5)",
+      "creatorName": "DiningDriverDeadlock(1)",
+      "creatorType": "DiningDriverDeadlock",
+      "payload": "null",
+      "clock": {
+        "Fork(5)": 1
+      }
+    }
+  },
+  {
+    "type": "CreateStateMachine",
+    "details": {
+      "log": "Fork(6) was created by DiningDriverDeadlock(1).",
+      "id": "Fork(6)",
+      "creatorName": "DiningDriverDeadlock(1)",
+      "creatorType": "DiningDriverDeadlock",
+      "payload": "null",
+      "clock": {
+        "Fork(6)": 1
+      }
+    }
+  },
+  {
+    "type": "ExceptionThrown",
+    "details": {
+      "log": "DiningDriverDeadlock(1) running action \u0027Anon_15\u0027 in state \u0027Init\u0027 threw exception \u0027ArgumentOutOfRangeException\u0027.",
+      "id": "DiningDriverDeadlock(1)",
+      "state": "Init",
+      "payload": "null",
+      "action": "Anon_15",
+      "exception": "ArgumentOutOfRangeException",
+      "clock": {
+        "DiningDriverDeadlock(1)": 3
+      }
+    }
+  },
+  {
+    "type": "AssertionFailure",
+    "details": {
+      "log": "Exception \u0027System.ArgumentOutOfRangeException\u0027 was thrown in DiningDriverDeadlock(1) (state \u0027Init\u0027, action \u0027Anon_15\u0027): Index was out of range. Must be non-negative and less than the size of the collection. (Parameter \u0027index\u0027)\nfrom location \u0027System.Private.CoreLib\u0027:\nThe stack trace is:\n   at System.Collections.Generic.List\u00601.get_Item(Int32 index)\r\n   at PChecker.Runtime.Values.PSeq.get_Item(Int32 index) in /home/runner/work/P/P/Src/PChecker/CheckerCore/Runtime/Values/PSeq.cs:line 76\r\n   at PImplementation.DiningDriverDeadlock.Anon_15(Event currentMachine_dequeuedEvent) in C:\\Users\\sankara\\Documents\\Cours UM6P\\cloud programming\\dining_philo_pproject\\PGenerated\\CSharp\\dining_philo.cs:line 722\r\n   at PChecker.Runtime.StateMachines.StateMachine.InvokeActionAsync(CachedDelegate cachedAction, Event e) in /home/runner/work/P/P/Src/PChecker/CheckerCore/Runtime/StateMachines/StateMachine.cs:line 718",
+      "error": "Exception \u0027System.ArgumentOutOfRangeException\u0027 was thrown in DiningDriverDeadlock(1) (state \u0027Init\u0027, action \u0027Anon_15\u0027): Index was out of range. Must be non-negative and less than the size of the collection. (Parameter \u0027index\u0027)\nfrom location \u0027System.Private.CoreLib\u0027:\nThe stack trace is:\n   at System.Collections.Generic.List\u00601.get_Item(Int32 index)\r\n   at PChecker.Runtime.Values.PSeq.get_Item(Int32 index) in /home/runner/work/P/P/Src/PChecker/CheckerCore/Runtime/Values/PSeq.cs:line 76\r\n   at PImplementation.DiningDriverDeadlock.Anon_15(Event currentMachine_dequeuedEvent) in C:\\Users\\sankara\\Documents\\Cours UM6P\\cloud programming\\dining_philo_pproject\\PGenerated\\CSharp\\dining_philo.cs:line 722\r\n   at PChecker.Runtime.StateMachines.StateMachine.InvokeActionAsync(CachedDelegate cachedAction, Event e) in /home/runner/work/P/P/Src/PChecker/CheckerCore/Runtime/StateMachines/StateMachine.cs:line 718",
+      "payload": "null"
+    }
+  },
+  {
+    "type": "StrategyDescription",
+    "details": {
+      "log": "Found bug using \u0027random\u0027 strategy.",
+      "payload": "null",
+      "strategy": "random",
+      "strategyDescription": "random[seed \u00271261733378\u0027]"
+    }
+  }
+]

@@ -1,0 +1,93 @@
+2025.06.02 21:17:15 INFO  Started: Metals version 1.5.3 in folders 'C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob' for client Visual Studio Code 1.98.2.
+2025.06.02 21:17:16 INFO  time: initialize in 0.37s
+2025.06.02 21:17:26 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\PhilosopherVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.02 21:17:38 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\PhilosopherVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Jun 03, 2025 11:32:11 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Jun 03, 2025 11:32:13 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Jun 03, 2025 11:32:15 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Jun 03, 2025 11:32:17 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Jun 03, 2025 11:32:18 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Jun 03, 2025 11:32:22 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Jun 04, 2025 11:58:53 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2025.06.05 01:13:52 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\PhilosopherVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:13:56 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\PhilosopherVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Jun 05, 2025 1:13:59 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17
+2025.06.05 01:13:59 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:14:04 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:14:04 WARN  no build target for: C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala
+2025.06.05 01:14:04 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Jun 05, 2025 1:14:05 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18
+2025.06.05 01:14:04 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:14:05 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:14:05 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Jun 05, 2025 1:14:05 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22
+2025.06.05 01:14:05 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:14:05 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:14:05 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Jun 05, 2025 1:14:06 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 30
+2025.06.05 01:14:06 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:14:07 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:31:44 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:31:48 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:31:48 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:31:48 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:31:48 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:31:58 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:31:58 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Exception in thread "pool-18-thread-1" java.lang.InterruptedException
+	at scala.meta.internal.metals.FutureCancelToken.checkCanceled(FutureCancelToken.scala:29)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:244)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:153)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025.06.05 01:31:58 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:31:58 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Philosopher.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:32:05 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\ForkVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:32:05 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\ForkVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Jun 05, 2025 1:32:05 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 57
+2025.06.05 01:32:05 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\ForkVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:32:05 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\ForkVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Jun 05, 2025 1:32:07 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 69
+2025.06.05 01:32:09 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\ForkVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:32:11 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Fork.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:32:12 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Fork.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Jun 05, 2025 1:32:12 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 75
+2025.06.05 01:32:12 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\Fork.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:32:15 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\PhilosopherVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:32:16 WARN  no build target for: C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\PhilosopherVMachine.scala
+Jun 05, 2025 1:32:16 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 94
+2025.06.05 01:32:15 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\PhilosopherVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:32:17 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\PhilosopherVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:32:18 INFO  no build target found for C:\Users\sankara\Documents\Cours UM6P\cloud programming\dining_philo_prob\src\main\scala\PhilosopherVMachine.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.06.05 01:46:58 INFO  Shutting down server
+2025.06.05 01:46:58 INFO  shutting down Metals
+2025.06.05 01:46:58 INFO  Exiting server
+2025.06.05 01:46:58 ERROR Unexpected error initializing server: 
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequest failed with message: Canceled
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:220)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:204)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.lang.Thread.run(Thread.java:1447)
+
