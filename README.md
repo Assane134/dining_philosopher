@@ -47,6 +47,13 @@ Then launch the virtual machine of the philosophers
 sbt "runMain dining.PhilosopherVMachine"
 ```
 
-### Run Akka implementation
+### Run P Language implementation
+
+```bash
+cd dining_philo_p_lang
+p compile
+p check -tc testDeadlock -s 5 # check the deadlock scenario without the implementation of the asymmetric strategy
+p check -tc testNoDeadlock -s 5 # check the solution implemented to avoid deadlock
+```
 
 For detailed instructions and documentation, please refer to the README of each project

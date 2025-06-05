@@ -186,7 +186,7 @@ Here, each philosopher acquire one fork, leading to a deadlock
 
 ### No deadlock example output
 
-Here the philosophers are able to eat
+Here, the philosophers are able to eat
 
 ```
 [info] [Philosopher7] right fork busy, retrying in 1s

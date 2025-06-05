@@ -1,5 +1,5 @@
-Total event coverage: 70.0%
-===========================
+Total event coverage: 100.0%
+============================
 StateMachine: DiningDriver
 ==========================
 Event coverage: 100.0%
@@ -9,54 +9,56 @@ Event coverage: 100.0%
 
 StateMachine: Fork
 ==================
-Event coverage: 50.0%
+Event coverage: 100.0%
 
 	State: Idle
-		State event coverage: 50.0%
-		Events received: Acquire
-		Events sent: Acquired, Busy
-		Events not covered: Release
+		State event coverage: 100.0%
+		Events received: Acquire, Release
+		Events sent: Acquired, Busy, Released
 
 Monitor: NoDeadLock
 ===================
-Event coverage: 50.0%
+Event coverage: 100.0%
 
 	State: Idle
-		State event coverage: 50.0%
-		Events received: Acquired
-		Events not covered: Released
+		State event coverage: 100.0%
+		Events received: Acquired, Released
 		Previous states: Idle
 		Next states: Idle
 
 StateMachine: Philosopher
 =========================
-Event coverage: 83.3%
+Event coverage: 100.0%
 
 	State: Init
 		State has no expected events, so coverage is 100%
 		Next states: AcquireLeftFork
 
 	State: AcquireLeftFork
-		State has no expected events, so coverage is 100%
-		Events sent: Acquire
-		Previous states: Init, WaitForLeftFork
-		Next states: WaitForLeftFork
-
-	State: WaitForLeftFork
-		State event coverage: 100.0%
-		Events received: AcquireRightFork, Acquired, Busy
-		Events sent: Acquire, AcquireRightFork
-		Previous states: AcquireLeftFork
-		Next states: AcquireLeftFork, WaitForRightFork
-
-	State: WaitForRightFork
 		State event coverage: 100.0%
 		Events received: Acquired, Busy
 		Events sent: Acquire
-		Previous states: WaitForLeftFork
-		Next states: Eating
+		Previous states: Init, ReleaseRightFork
+		Next states: AcquireRightFork
 
-	State: Eating is uncovered
-		Events not covered: EatDone
-		Previous states: WaitForRightFork
+	State: AcquireRightFork
+		State event coverage: 100.0%
+		Events received: Acquired, Busy
+		Events sent: Acquire
+		Previous states: AcquireLeftFork
+		Next states: ReleaseLeftFork
+
+	State: ReleaseLeftFork
+		State event coverage: 100.0%
+		Events received: Released
+		Events sent: Release
+		Previous states: AcquireRightFork
+		Next states: ReleaseRightFork
+
+	State: ReleaseRightFork
+		State event coverage: 100.0%
+		Events received: Released
+		Events sent: Release
+		Previous states: ReleaseLeftFork
+		Next states: AcquireLeftFork
 

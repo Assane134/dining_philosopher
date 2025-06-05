@@ -1,0 +1,23 @@
+Total event coverage: 0.0%
+==========================
+StateMachine: DiningDriverDeadlock
+==================================
+Event coverage: 100.0%
+
+	State: Init
+		State has no expected events, so coverage is 100%
+
+StateMachine: Fork
+==================
+Event coverage: 0.0%
+
+	State: Idle is uncovered
+		Events not covered: Acquire, Release
+
+Monitor: NoDeadLock
+===================
+Event coverage: 0.0%
+
+	State: Idle is uncovered
+		Events not covered: Acquired, Released
+

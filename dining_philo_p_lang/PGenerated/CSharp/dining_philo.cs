@@ -58,15 +58,6 @@ namespace PImplementation
 }
 namespace PImplementation
 {
-    internal partial class EatDone : Event
-    {
-        public EatDone() : base() {}
-        public EatDone (IPValue payload): base(payload){ }
-        public override IPValue Clone() { return new EatDone();}
-    }
-}
-namespace PImplementation
-{
     internal partial class Release : Event
     {
         public Release() : base() {}
@@ -86,14 +77,12 @@ namespace PImplementation
             this.sends.Add(nameof(Acquire));
             this.sends.Add(nameof(Acquired));
             this.sends.Add(nameof(Busy));
-            this.sends.Add(nameof(EatDone));
             this.sends.Add(nameof(Release));
             this.sends.Add(nameof(Released));
             this.sends.Add(nameof(PHalt));
             this.receives.Add(nameof(Acquire));
             this.receives.Add(nameof(Acquired));
             this.receives.Add(nameof(Busy));
-            this.receives.Add(nameof(EatDone));
             this.receives.Add(nameof(Release));
             this.receives.Add(nameof(Released));
             this.receives.Add(nameof(PHalt));
@@ -170,14 +159,12 @@ namespace PImplementation
             this.sends.Add(nameof(Acquire));
             this.sends.Add(nameof(Acquired));
             this.sends.Add(nameof(Busy));
-            this.sends.Add(nameof(EatDone));
             this.sends.Add(nameof(Release));
             this.sends.Add(nameof(Released));
             this.sends.Add(nameof(PHalt));
             this.receives.Add(nameof(Acquire));
             this.receives.Add(nameof(Acquired));
             this.receives.Add(nameof(Busy));
-            this.receives.Add(nameof(EatDone));
             this.receives.Add(nameof(Release));
             this.receives.Add(nameof(Released));
             this.receives.Add(nameof(PHalt));
@@ -226,6 +213,8 @@ namespace PImplementation
         public void Anon_5(Event currentMachine_dequeuedEvent)
         {
             Philosopher currentMachine = this;
+            PMachineValue payload_2 = (PMachineValue)(gotoPayload ?? ((Event)currentMachine_dequeuedEvent).Payload);
+            this.gotoPayload = null;
             PString TMP_tmp0_4 = ((PString)"");
             PString TMP_tmp1_4 = ((PString)"");
             TMP_tmp0_4 = (PString)(((PString)((IPValue)name)?.Clone()));
@@ -281,7 +270,7 @@ namespace PImplementation
             TMP_tmp2_6 = (PString)(((PString)((IPValue)name)?.Clone()));
             TMP_tmp3_5 = (PString)(((PString) String.Format("{0} is eating",TMP_tmp2_6)));
             currentMachine.LogLine("" + TMP_tmp3_5);
-            currentMachine.RaiseGotoStateEvent<Eating>();
+            currentMachine.RaiseGotoStateEvent<ReleaseLeftFork>();
             return;
         }
         public void Anon_9(Event currentMachine_dequeuedEvent)
@@ -307,29 +296,43 @@ namespace PImplementation
             PMachineValue TMP_tmp0_9 = null;
             Event TMP_tmp1_9 = null;
             PMachineValue TMP_tmp2_8 = null;
-            PMachineValue TMP_tmp3_7 = null;
-            Event TMP_tmp4_6 = null;
-            PMachineValue TMP_tmp5_2 = null;
-            PString TMP_tmp6 = ((PString)"");
-            PString TMP_tmp7 = ((PString)"");
-            PString TMP_tmp8 = ((PString)"");
-            PString TMP_tmp9 = ((PString)"");
-            TMP_tmp0_9 = (PMachineValue)(((PMachineValue)((IPValue)rightFork)?.Clone()));
+            TMP_tmp0_9 = (PMachineValue)(((PMachineValue)((IPValue)leftFork)?.Clone()));
             TMP_tmp1_9 = (Event)(new Release(null));
             TMP_tmp2_8 = (PMachineValue)(currentMachine.self);
             TMP_tmp1_9.Payload = TMP_tmp2_8;
             currentMachine.SendEvent(TMP_tmp0_9, (Event)TMP_tmp1_9);
-            TMP_tmp3_7 = (PMachineValue)(((PMachineValue)((IPValue)leftFork)?.Clone()));
-            TMP_tmp4_6 = (Event)(new Release(null));
-            TMP_tmp5_2 = (PMachineValue)(currentMachine.self);
-            TMP_tmp4_6.Payload = TMP_tmp5_2;
-            currentMachine.SendEvent(TMP_tmp3_7, (Event)TMP_tmp4_6);
-            TMP_tmp6 = (PString)(((PString)((IPValue)name)?.Clone()));
-            TMP_tmp7 = (PString)(((PString) String.Format("{0} finished eating and released forks",TMP_tmp6)));
-            currentMachine.LogLine("" + TMP_tmp7);
-            TMP_tmp8 = (PString)(((PString)((IPValue)name)?.Clone()));
-            TMP_tmp9 = (PString)(((PString) String.Format("{0} is thinking",TMP_tmp8)));
-            currentMachine.LogLine("" + TMP_tmp9);
+        }
+        public void Anon_11(Event currentMachine_dequeuedEvent)
+        {
+            Philosopher currentMachine = this;
+            currentMachine.RaiseGotoStateEvent<ReleaseRightFork>();
+            return;
+        }
+        public void Anon_12(Event currentMachine_dequeuedEvent)
+        {
+            Philosopher currentMachine = this;
+            PMachineValue TMP_tmp0_10 = null;
+            Event TMP_tmp1_10 = null;
+            PMachineValue TMP_tmp2_9 = null;
+            TMP_tmp0_10 = (PMachineValue)(((PMachineValue)((IPValue)rightFork)?.Clone()));
+            TMP_tmp1_10 = (Event)(new Release(null));
+            TMP_tmp2_9 = (PMachineValue)(currentMachine.self);
+            TMP_tmp1_10.Payload = TMP_tmp2_9;
+            currentMachine.SendEvent(TMP_tmp0_10, (Event)TMP_tmp1_10);
+        }
+        public void Anon_13(Event currentMachine_dequeuedEvent)
+        {
+            Philosopher currentMachine = this;
+            PString TMP_tmp0_11 = ((PString)"");
+            PString TMP_tmp1_11 = ((PString)"");
+            PString TMP_tmp2_10 = ((PString)"");
+            PString TMP_tmp3_7 = ((PString)"");
+            TMP_tmp0_11 = (PString)(((PString)((IPValue)name)?.Clone()));
+            TMP_tmp1_11 = (PString)(((PString) String.Format("{0} finished eating and released forks",TMP_tmp0_11)));
+            currentMachine.LogLine("" + TMP_tmp1_11);
+            TMP_tmp2_10 = (PString)(((PString)((IPValue)name)?.Clone()));
+            TMP_tmp3_7 = (PString)(((PString) String.Format("{0} is thinking",TMP_tmp2_10)));
+            currentMachine.LogLine("" + TMP_tmp3_7);
             currentMachine.RaiseGotoStateEvent<AcquireLeftFork>();
             return;
         }
@@ -351,7 +354,13 @@ namespace PImplementation
         {
         }
         [OnEntry(nameof(Anon_10))]
-        class Eating : State
+        [OnEventDoAction(typeof(Released), nameof(Anon_11))]
+        class ReleaseLeftFork : State
+        {
+        }
+        [OnEntry(nameof(Anon_12))]
+        [OnEventDoAction(typeof(Released), nameof(Anon_13))]
+        class ReleaseRightFork : State
         {
         }
     }
@@ -369,26 +378,26 @@ namespace PImplementation
             observes.Add(nameof(Released));
         }
         
-        public void Anon_11(Event currentMachine_dequeuedEvent)
+        public void Anon_14(Event currentMachine_dequeuedEvent)
         {
             NoDeadLock currentMachine = this;
-            N = (PInt)(((PInt)(5)));
+            N = (PInt)(((PInt)(10)));
         }
-        public void Anon_12(Event currentMachine_dequeuedEvent)
+        public void Anon_15(Event currentMachine_dequeuedEvent)
         {
             NoDeadLock currentMachine = this;
-            PMachineValue payload_2 = (PMachineValue)(gotoPayload ?? ((Event)currentMachine_dequeuedEvent).Payload);
+            PMachineValue payload_3 = (PMachineValue)(gotoPayload ?? ((Event)currentMachine_dequeuedEvent).Payload);
             this.gotoPayload = null;
-            PSeq TMP_tmp0_10 = new PSeq();
-            PBool TMP_tmp1_10 = ((PBool)false);
-            PInt TMP_tmp2_9 = ((PInt)0);
+            PSeq TMP_tmp0_12 = new PSeq();
+            PBool TMP_tmp1_12 = ((PBool)false);
+            PInt TMP_tmp2_11 = ((PInt)0);
             PInt TMP_tmp3_8 = ((PInt)0);
-            PSeq TMP_tmp4_7 = new PSeq();
+            PSeq TMP_tmp4_6 = new PSeq();
             PInt TMP_i_philosopher_tmp5 = ((PInt)0);
             PInt sizeof_philosopher_tmp6 = ((PInt)0);
-            PSeq TMP_tmp7_1 = new PSeq();
-            PInt TMP_tmp8_1 = ((PInt)0);
-            PInt TMP_tmp9_1 = ((PInt)0);
+            PSeq TMP_tmp7 = new PSeq();
+            PInt TMP_tmp8 = ((PInt)0);
+            PInt TMP_tmp9 = ((PInt)0);
             PBool TMP_tmp10 = ((PBool)false);
             PBool TMP_tmp11 = ((PBool)false);
             PInt TMP_tmp12 = ((PInt)0);
@@ -401,28 +410,28 @@ namespace PImplementation
             PString TMP_tmp19 = ((PString)"");
             PString TMP_tmp20 = ((PString)"");
             PString TMP_tmp21 = ((PString)"");
-            TMP_tmp0_10 = (PSeq)((held).CloneKeys());
-            TMP_tmp1_10 = (PBool)(((PBool)(((PSeq)TMP_tmp0_10).Contains(payload_2))));
-            if (TMP_tmp1_10)
+            TMP_tmp0_12 = (PSeq)((held).CloneKeys());
+            TMP_tmp1_12 = (PBool)(((PBool)(((PSeq)TMP_tmp0_12).Contains(payload_3))));
+            if (TMP_tmp1_12)
             {
-                TMP_tmp2_9 = (PInt)(((PMap)held)[payload_2]);
-                TMP_tmp3_8 = (PInt)((TMP_tmp2_9) + (((PInt)(1))));
-                ((PMap)held)[payload_2] = TMP_tmp3_8;
+                TMP_tmp2_11 = (PInt)(((PMap)held)[payload_3]);
+                TMP_tmp3_8 = (PInt)((TMP_tmp2_11) + (((PInt)(1))));
+                ((PMap)held)[payload_3] = TMP_tmp3_8;
             }
             else
             {
-                ((PMap)held)[payload_2] = (PInt)(((PInt)(1)));
+                ((PMap)held)[payload_3] = (PInt)(((PInt)(1)));
             }
             singleCount = (PInt)(((PInt)(0)));
-            TMP_tmp7_1 = (PSeq)((held).CloneKeys());
-            TMP_tmp4_7 = TMP_tmp7_1;
+            TMP_tmp7 = (PSeq)((held).CloneKeys());
+            TMP_tmp4_6 = TMP_tmp7;
             TMP_i_philosopher_tmp5 = (PInt)(((PInt)(-1)));
-            TMP_tmp8_1 = (PInt)(((PInt)(TMP_tmp4_7).Count));
-            sizeof_philosopher_tmp6 = TMP_tmp8_1;
+            TMP_tmp8 = (PInt)(((PInt)(TMP_tmp4_6).Count));
+            sizeof_philosopher_tmp6 = TMP_tmp8;
             while (((PBool)true))
             {
-                TMP_tmp9_1 = (PInt)((sizeof_philosopher_tmp6) - (((PInt)(1))));
-                TMP_tmp10 = (PBool)((TMP_i_philosopher_tmp5) < (TMP_tmp9_1));
+                TMP_tmp9 = (PInt)((sizeof_philosopher_tmp6) - (((PInt)(1))));
+                TMP_tmp10 = (PBool)((TMP_i_philosopher_tmp5) < (TMP_tmp9));
                 TMP_tmp11 = (PBool)(((PBool)((IPValue)TMP_tmp10)?.Clone()));
                 if (TMP_tmp11)
                 {
@@ -433,7 +442,7 @@ namespace PImplementation
                 }
                 TMP_tmp12 = (PInt)((TMP_i_philosopher_tmp5) + (((PInt)(1))));
                 TMP_i_philosopher_tmp5 = TMP_tmp12;
-                TMP_tmp13 = (PMachineValue)(((PSeq)TMP_tmp4_7)[TMP_i_philosopher_tmp5]);
+                TMP_tmp13 = (PMachineValue)(((PSeq)TMP_tmp4_6)[TMP_i_philosopher_tmp5]);
                 TMP_tmp14 = (PMachineValue)(((PMachineValue)((IPValue)TMP_tmp13)?.Clone()));
                 philosopher = TMP_tmp14;
                 TMP_tmp15 = (PInt)(((PMap)held)[philosopher]);
@@ -450,27 +459,27 @@ namespace PImplementation
             }
             else
             {
-                TMP_tmp19 = (PString)(((PString) String.Format("PSpec\\NoDeadlockSpec.p:35:13")));
-                TMP_tmp20 = (PString)(((PString) String.Format("Deadlock: every philosopher holds exactly one fork")));
+                TMP_tmp19 = (PString)(((PString) String.Format("PSpec\\NoDeadlockSpec.p:36:13")));
+                TMP_tmp20 = (PString)(((PString) String.Format("Deadlock: every philosopher holds one fork")));
                 TMP_tmp21 = (PString)(((PString) String.Format("{0} {1}",TMP_tmp19,TMP_tmp20)));
                 currentMachine.Assert(TMP_tmp18,"Assertion Failed: " + TMP_tmp21);
             }
         }
-        public void Anon_13(Event currentMachine_dequeuedEvent)
+        public void Anon_16(Event currentMachine_dequeuedEvent)
         {
             NoDeadLock currentMachine = this;
-            PMachineValue payload_3 = (PMachineValue)(gotoPayload ?? ((Event)currentMachine_dequeuedEvent).Payload);
+            PMachineValue payload_4 = (PMachineValue)(gotoPayload ?? ((Event)currentMachine_dequeuedEvent).Payload);
             this.gotoPayload = null;
-            PInt TMP_tmp0_11 = ((PInt)0);
-            PInt TMP_tmp1_11 = ((PInt)0);
-            TMP_tmp0_11 = (PInt)(((PMap)held)[philosopher]);
-            TMP_tmp1_11 = (PInt)((TMP_tmp0_11) - (((PInt)(1))));
-            ((PMap)held)[philosopher] = TMP_tmp1_11;
+            PInt TMP_tmp0_13 = ((PInt)0);
+            PInt TMP_tmp1_13 = ((PInt)0);
+            TMP_tmp0_13 = (PInt)(((PMap)held)[philosopher]);
+            TMP_tmp1_13 = (PInt)((TMP_tmp0_13) - (((PInt)(1))));
+            ((PMap)held)[philosopher] = TMP_tmp1_13;
         }
         [Start]
-        [OnEntry(nameof(Anon_11))]
-        [OnEventDoAction(typeof(Acquired), nameof(Anon_12))]
-        [OnEventDoAction(typeof(Released), nameof(Anon_13))]
+        [OnEntry(nameof(Anon_14))]
+        [OnEventDoAction(typeof(Acquired), nameof(Anon_15))]
+        [OnEventDoAction(typeof(Released), nameof(Anon_16))]
         class Idle : State
         {
         }
@@ -493,14 +502,12 @@ namespace PImplementation
             this.sends.Add(nameof(Acquire));
             this.sends.Add(nameof(Acquired));
             this.sends.Add(nameof(Busy));
-            this.sends.Add(nameof(EatDone));
             this.sends.Add(nameof(Release));
             this.sends.Add(nameof(Released));
             this.sends.Add(nameof(PHalt));
             this.receives.Add(nameof(Acquire));
             this.receives.Add(nameof(Acquired));
             this.receives.Add(nameof(Busy));
-            this.receives.Add(nameof(EatDone));
             this.receives.Add(nameof(Release));
             this.receives.Add(nameof(Released));
             this.receives.Add(nameof(PHalt));
@@ -508,19 +515,19 @@ namespace PImplementation
             this.creates.Add(nameof(I_Philosopher));
         }
         
-        public void Anon_14(Event currentMachine_dequeuedEvent)
+        public void Anon_17(Event currentMachine_dequeuedEvent)
         {
             DiningDriver currentMachine = this;
-            PBool TMP_tmp0_12 = ((PBool)false);
-            PBool TMP_tmp1_12 = ((PBool)false);
-            PMachineValue TMP_tmp2_10 = null;
+            PBool TMP_tmp0_14 = ((PBool)false);
+            PBool TMP_tmp1_14 = ((PBool)false);
+            PMachineValue TMP_tmp2_12 = null;
             PInt TMP_tmp3_9 = ((PInt)0);
-            PBool TMP_tmp4_8 = ((PBool)false);
-            PBool TMP_tmp5_3 = ((PBool)false);
-            PInt TMP_tmp6_1 = ((PInt)0);
-            PInt TMP_tmp7_2 = ((PInt)0);
-            PBool TMP_tmp8_2 = ((PBool)false);
-            PInt TMP_tmp9_2 = ((PInt)0);
+            PBool TMP_tmp4_7 = ((PBool)false);
+            PBool TMP_tmp5_2 = ((PBool)false);
+            PInt TMP_tmp6 = ((PInt)0);
+            PInt TMP_tmp7_1 = ((PInt)0);
+            PBool TMP_tmp8_1 = ((PBool)false);
+            PInt TMP_tmp9_1 = ((PInt)0);
             PString TMP_tmp10_1 = ((PString)"");
             PMachineValue TMP_tmp11_1 = null;
             PMachineValue TMP_tmp12_1 = null;
@@ -533,44 +540,44 @@ namespace PImplementation
             PNamedTuple TMP_tmp19_1 = (new PNamedTuple(new string[]{"n","lf","rf"},((PString)""), null, null));
             PMachineValue TMP_tmp20_1 = null;
             PInt TMP_tmp21_1 = ((PInt)0);
-            N_1 = (PInt)(((PInt)(5)));
+            N_1 = (PInt)(((PInt)(10)));
             i = (PInt)(((PInt)(0)));
             while (((PBool)true))
             {
-                TMP_tmp0_12 = (PBool)((i) < (N_1));
-                TMP_tmp1_12 = (PBool)(((PBool)((IPValue)TMP_tmp0_12)?.Clone()));
-                if (TMP_tmp1_12)
+                TMP_tmp0_14 = (PBool)((i) < (N_1));
+                TMP_tmp1_14 = (PBool)(((PBool)((IPValue)TMP_tmp0_14)?.Clone()));
+                if (TMP_tmp1_14)
                 {
                 }
                 else
                 {
                     break;
                 }
-                TMP_tmp2_10 = (PMachineValue)(currentMachine.CreateInterface<I_Fork>( currentMachine));
-                ((PSeq)forks).Insert(i, TMP_tmp2_10);
+                TMP_tmp2_12 = (PMachineValue)(currentMachine.CreateInterface<I_Fork>( currentMachine));
+                ((PSeq)forks).Insert(i, TMP_tmp2_12);
                 TMP_tmp3_9 = (PInt)((i) + (((PInt)(1))));
                 i = TMP_tmp3_9;
             }
             j = (PInt)(((PInt)(0)));
             while (((PBool)true))
             {
-                TMP_tmp4_8 = (PBool)((j) < (N_1));
-                TMP_tmp5_3 = (PBool)(((PBool)((IPValue)TMP_tmp4_8)?.Clone()));
-                if (TMP_tmp5_3)
+                TMP_tmp4_7 = (PBool)((j) < (N_1));
+                TMP_tmp5_2 = (PBool)(((PBool)((IPValue)TMP_tmp4_7)?.Clone()));
+                if (TMP_tmp5_2)
                 {
                 }
                 else
                 {
                     break;
                 }
-                TMP_tmp6_1 = (PInt)((j) + (((PInt)(1))));
-                TMP_tmp7_2 = (PInt)((TMP_tmp6_1) % (N_1));
-                right = TMP_tmp7_2;
-                TMP_tmp8_2 = (PBool)((PValues.SafeEquals(j,((PInt)(0)))));
-                if (TMP_tmp8_2)
+                TMP_tmp6 = (PInt)((j) + (((PInt)(1))));
+                TMP_tmp7_1 = (PInt)((TMP_tmp6) % (N_1));
+                right = TMP_tmp7_1;
+                TMP_tmp8_1 = (PBool)((PValues.SafeEquals(j,((PInt)(0)))));
+                if (TMP_tmp8_1)
                 {
-                    TMP_tmp9_2 = (PInt)((j) + (((PInt)(1))));
-                    TMP_tmp10_1 = (PString)(((PString) String.Format("Philosopher{0}",TMP_tmp9_2)));
+                    TMP_tmp9_1 = (PInt)((j) + (((PInt)(1))));
+                    TMP_tmp10_1 = (PString)(((PString) String.Format("Philosopher{0}",TMP_tmp9_1)));
                     TMP_tmp11_1 = (PMachineValue)(((PSeq)forks)[right]);
                     TMP_tmp12_1 = (PMachineValue)(((PSeq)forks)[j]);
                     TMP_tmp13_1 = (PNamedTuple)((new PNamedTuple(new string[]{"n","lf","rf"}, TMP_tmp10_1, TMP_tmp11_1, TMP_tmp12_1)));
@@ -592,7 +599,7 @@ namespace PImplementation
             }
         }
         [Start]
-        [OnEntry(nameof(Anon_14))]
+        [OnEntry(nameof(Anon_17))]
         class Init : State
         {
         }
@@ -614,14 +621,12 @@ namespace PImplementation
             this.sends.Add(nameof(Acquire));
             this.sends.Add(nameof(Acquired));
             this.sends.Add(nameof(Busy));
-            this.sends.Add(nameof(EatDone));
             this.sends.Add(nameof(Release));
             this.sends.Add(nameof(Released));
             this.sends.Add(nameof(PHalt));
             this.receives.Add(nameof(Acquire));
             this.receives.Add(nameof(Acquired));
             this.receives.Add(nameof(Busy));
-            this.receives.Add(nameof(EatDone));
             this.receives.Add(nameof(Release));
             this.receives.Add(nameof(Released));
             this.receives.Add(nameof(PHalt));
@@ -629,61 +634,61 @@ namespace PImplementation
             this.creates.Add(nameof(I_Philosopher));
         }
         
-        public void Anon_15(Event currentMachine_dequeuedEvent)
+        public void Anon_18(Event currentMachine_dequeuedEvent)
         {
             DiningDriverDeadlock currentMachine = this;
-            PBool TMP_tmp0_13 = ((PBool)false);
-            PBool TMP_tmp1_13 = ((PBool)false);
-            PMachineValue TMP_tmp2_11 = null;
+            PBool TMP_tmp0_15 = ((PBool)false);
+            PBool TMP_tmp1_15 = ((PBool)false);
+            PMachineValue TMP_tmp2_13 = null;
             PInt TMP_tmp3_10 = ((PInt)0);
-            PBool TMP_tmp4_9 = ((PBool)false);
-            PBool TMP_tmp5_4 = ((PBool)false);
-            PInt TMP_tmp6_2 = ((PInt)0);
-            PString TMP_tmp7_3 = ((PString)"");
-            PMachineValue TMP_tmp8_3 = null;
-            PInt TMP_tmp9_3 = ((PInt)0);
+            PBool TMP_tmp4_8 = ((PBool)false);
+            PBool TMP_tmp5_3 = ((PBool)false);
+            PInt TMP_tmp6_1 = ((PInt)0);
+            PString TMP_tmp7_2 = ((PString)"");
+            PMachineValue TMP_tmp8_2 = null;
+            PInt TMP_tmp9_2 = ((PInt)0);
             PInt TMP_tmp10_2 = ((PInt)0);
             PMachineValue TMP_tmp11_2 = null;
             PNamedTuple TMP_tmp12_2 = (new PNamedTuple(new string[]{"n","lf","rf"},((PString)""), null, null));
             PMachineValue TMP_tmp13_2 = null;
             PInt TMP_tmp14_2 = ((PInt)0);
-            N_2 = (PInt)(((PInt)(5)));
+            N_2 = (PInt)(((PInt)(10)));
             i_1 = (PInt)(((PInt)(0)));
             while (((PBool)true))
             {
-                TMP_tmp0_13 = (PBool)((i_1) < (N_2));
-                TMP_tmp1_13 = (PBool)(((PBool)((IPValue)TMP_tmp0_13)?.Clone()));
-                if (TMP_tmp1_13)
+                TMP_tmp0_15 = (PBool)((i_1) < (N_2));
+                TMP_tmp1_15 = (PBool)(((PBool)((IPValue)TMP_tmp0_15)?.Clone()));
+                if (TMP_tmp1_15)
                 {
                 }
                 else
                 {
                     break;
                 }
-                TMP_tmp2_11 = (PMachineValue)(currentMachine.CreateInterface<I_Fork>( currentMachine));
-                ((PSeq)forks_1).Insert(i_1, TMP_tmp2_11);
+                TMP_tmp2_13 = (PMachineValue)(currentMachine.CreateInterface<I_Fork>( currentMachine));
+                ((PSeq)forks_1).Insert(i_1, TMP_tmp2_13);
                 TMP_tmp3_10 = (PInt)((i_1) + (((PInt)(1))));
                 i_1 = TMP_tmp3_10;
             }
             j_1 = (PInt)(((PInt)(0)));
             while (((PBool)true))
             {
-                TMP_tmp4_9 = (PBool)((j_1) < (N_2));
-                TMP_tmp5_4 = (PBool)(((PBool)((IPValue)TMP_tmp4_9)?.Clone()));
-                if (TMP_tmp5_4)
+                TMP_tmp4_8 = (PBool)((j_1) < (N_2));
+                TMP_tmp5_3 = (PBool)(((PBool)((IPValue)TMP_tmp4_8)?.Clone()));
+                if (TMP_tmp5_3)
                 {
                 }
                 else
                 {
                     break;
                 }
-                TMP_tmp6_2 = (PInt)(((PInt)((IPValue)i_1)?.Clone()));
-                TMP_tmp7_3 = (PString)(((PString) String.Format("Philosopher{0}",TMP_tmp6_2)));
-                TMP_tmp8_3 = (PMachineValue)(((PSeq)forks_1)[j_1]);
-                TMP_tmp9_3 = (PInt)((j_1) + (((PInt)(1))));
-                TMP_tmp10_2 = (PInt)((TMP_tmp9_3) % (N_2));
+                TMP_tmp6_1 = (PInt)(((PInt)((IPValue)i_1)?.Clone()));
+                TMP_tmp7_2 = (PString)(((PString) String.Format("Philosopher{0}",TMP_tmp6_1)));
+                TMP_tmp8_2 = (PMachineValue)(((PSeq)forks_1)[j_1]);
+                TMP_tmp9_2 = (PInt)((j_1) + (((PInt)(1))));
+                TMP_tmp10_2 = (PInt)((TMP_tmp9_2) % (N_2));
                 TMP_tmp11_2 = (PMachineValue)(((PSeq)forks_1)[TMP_tmp10_2]);
-                TMP_tmp12_2 = (PNamedTuple)((new PNamedTuple(new string[]{"n","lf","rf"}, TMP_tmp7_3, TMP_tmp8_3, TMP_tmp11_2)));
+                TMP_tmp12_2 = (PNamedTuple)((new PNamedTuple(new string[]{"n","lf","rf"}, TMP_tmp7_2, TMP_tmp8_2, TMP_tmp11_2)));
                 TMP_tmp13_2 = (PMachineValue)(currentMachine.CreateInterface<I_Philosopher>( currentMachine, TMP_tmp12_2));
                 ((PSeq)phils_1).Insert(j_1, TMP_tmp13_2);
                 TMP_tmp14_2 = (PInt)((j_1) + (((PInt)(1))));
@@ -691,7 +696,7 @@ namespace PImplementation
             }
         }
         [Start]
-        [OnEntry(nameof(Anon_15))]
+        [OnEntry(nameof(Anon_18))]
         class Init : State
         {
         }
@@ -828,10 +833,10 @@ namespace PImplementation
     public partial class PHelper {
         public static void InitializeInterfaces() {
             PInterfaces.Clear();
-            PInterfaces.AddInterface(nameof(I_Fork), nameof(Acquire), nameof(Acquired), nameof(Busy), nameof(EatDone), nameof(Release), nameof(Released), nameof(PHalt));
-            PInterfaces.AddInterface(nameof(I_Philosopher), nameof(Acquire), nameof(Acquired), nameof(Busy), nameof(EatDone), nameof(Release), nameof(Released), nameof(PHalt));
-            PInterfaces.AddInterface(nameof(I_DiningDriver), nameof(Acquire), nameof(Acquired), nameof(Busy), nameof(EatDone), nameof(Release), nameof(Released), nameof(PHalt));
-            PInterfaces.AddInterface(nameof(I_DiningDriverDeadlock), nameof(Acquire), nameof(Acquired), nameof(Busy), nameof(EatDone), nameof(Release), nameof(Released), nameof(PHalt));
+            PInterfaces.AddInterface(nameof(I_Fork), nameof(Acquire), nameof(Acquired), nameof(Busy), nameof(Release), nameof(Released), nameof(PHalt));
+            PInterfaces.AddInterface(nameof(I_Philosopher), nameof(Acquire), nameof(Acquired), nameof(Busy), nameof(Release), nameof(Released), nameof(PHalt));
+            PInterfaces.AddInterface(nameof(I_DiningDriver), nameof(Acquire), nameof(Acquired), nameof(Busy), nameof(Release), nameof(Released), nameof(PHalt));
+            PInterfaces.AddInterface(nameof(I_DiningDriverDeadlock), nameof(Acquire), nameof(Acquired), nameof(Busy), nameof(Release), nameof(Released), nameof(PHalt));
         }
     }
     

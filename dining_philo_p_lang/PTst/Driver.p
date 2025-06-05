@@ -10,7 +10,7 @@ machine DiningDriver {
     start state Init {
         entry  {
             // Number of philosophers/forks
-            N = 5; // Set to your desired number of philosophers
+            N = 10; // Set to your desired number of philosophers
 
             // Create N forks
             i = 0;
@@ -60,7 +60,6 @@ machine DiningDriverDeadlock
     // This implementation gives a deadlock
     // because all philosophers try to pick left then right
 
-    
     var N: int;
     var forks: seq[machine];
     var phils: seq[machine];
@@ -70,7 +69,7 @@ machine DiningDriverDeadlock
     start state Init {
         entry  {
             // Number of philosophers/forks
-            N = 5; // Set to your desired number of philosophers
+            N = 10; // Set to your desired number of philosophers
 
             // Create N forks
             i = 0;
